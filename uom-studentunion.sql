@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2020 at 07:36 PM
+-- Generation Time: Jun 06, 2020 at 03:06 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -43,7 +43,7 @@ CREATE TABLE `table_admins` (
 
 INSERT INTO `table_admins` (`id`, `Username`, `FullName`, `Password`, `Email`, `Badge-Text`) VALUES
 (1, 'admin', 'Yash Djson Dookun', '5f4dcc3b5aa765d61d8327deb882cf99', 'yash.dookun@umail.uom.ac.mu', 'star'),
-(2, 'djson', 'Yash Djson Dookun', '5f4dcc3b5aa765d61d8327deb882cf99', 'yash.dookun@umal.uom.ac.mu', 'star');
+(2, 'djson', 'Yash Djson Dookun', '5f4dcc3b5aa765d61d8327deb882cf99', 'yash.dookun@umail.uom.ac.mu', 'star');
 
 -- --------------------------------------------------------
 
@@ -72,8 +72,7 @@ INSERT INTO `table_facrep` (`id`, `facRep_name`, `facRep_title`, `facRep_fblink`
 (4, 'Moorateeah Tashil Rye', 'Faculty of Information, Communication and Digital Technologies', '#', '5-777 7777', 'http://sites2019.uom.ac.mu/studentsunion/images/files/facRep/2019/Tashil.jpg', 'studentrep_foicdt@umail.uom.ac.mu'),
 (5, 'GEERJANAN Adarsh', 'Faculty of Science', '#', '5-777 7777', 'http://sites2019.uom.ac.mu/studentsunion/images/files/facRep/2019/Geerja.jpg', 'studentrep_fos@umail.uom.ac.mu'),
 (6, 'Urvashi Uttara Ducava', 'Faculty of Social Studies and Humanities', 'https://www.facebook.com/groups/su.fssh/', '5-777 7777', 'http://sites2019.uom.ac.mu/studentsunion/images/files/facRep/2019/Ducava.jpg', 'studentrep_fssh@umail.uom.ac.mu'),
-(7, 'MOOTHIEN Alexandra Bianca', 'Centre for Innovative Lifelong Learning', '#', '5-777 7777', 'https://images.gr-assets.com/users/1383029198p6/25139581.jpg', 'bianca.moothien@umail.uom.ac.mu'),
-(8, 'Mickey Mouse', 'Faculty Of Tests', 'https://secure.img1-fg.wfcdn.com/im/91268020/compr-r85/1106/110667737/mickey-mouse-wall-decor.jpg', '5-777 7777', 'https://secure.img1-fg.wfcdn.com/im/91268020/compr-r85/1106/110667737/mickey-mouse-wall-decor.jpg', 'Mickey@Mouse.com');
+(7, 'MOOTHIEN Alexandra Bianca', 'Centre for Innovative Lifelong Learning', '#', '5-777 7777', 'https://images.gr-assets.com/users/1383029198p6/25139581.jpg', 'bianca.moothien@umail.uom.ac.mu');
 
 -- --------------------------------------------------------
 
@@ -198,13 +197,13 @@ ALTER TABLE `table_admins`
 -- AUTO_INCREMENT for table `table_facrep`
 --
 ALTER TABLE `table_facrep`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `table_fbposts`
 --
 ALTER TABLE `table_fbposts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `table_ob`
@@ -216,7 +215,7 @@ ALTER TABLE `table_ob`
 -- AUTO_INCREMENT for table `table_suggestions`
 --
 ALTER TABLE `table_suggestions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
