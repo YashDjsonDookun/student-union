@@ -76,7 +76,6 @@
                 <a href="#fixed-tab-1" class="mdl-layout__tab is-active" style="color: white">| Office Bearers |</a>
                 <a href="#fixed-tab-2" class="mdl-layout__tab" style="color: white">| Faculty Representatives |</a>
                 <a href="#fixed-tab-3" class="mdl-layout__tab" style="color: white">| Forum Posts & Suggestions |</a>
-                <a href="#fixed-tab-4" class="mdl-layout__tab" style="color: white">| Administrators |</a>
             </div>
         </header>
         <main class="mdl-layout__content">
@@ -275,11 +274,6 @@
                             ?>
                         </section>
                     </div>
-                </div>
-            </section>
-            <section class="mdl-layout__tab-panel" id="fixed-tab-4">
-                <div class="page-content">
-                    <!-- Your content goes here -->
                 </div>
             </section>
         </main>
