@@ -188,6 +188,53 @@
                             }
                     </script>
                 </div>
+                <div class="addNewFaculty">
+                    <div class="addNewFaculty-contents">
+                        <label for="facultyName">Faculty Name:</label>
+                        <input class="addFR" type="text" name="facultyName" id="facultyName" placeholder="Faculty Of bla bla">
+                        <label for="facultyRepName">Faculty Representative:</label>
+                        <input class="addFR" type="text" name="facultyRepName" id="facultyRepName" placeholder="John Doe">
+                        <label for="facultyRepEmail">FacRep Email:</label>
+                        <input class="addFR" type="text" name="facultyRepEmail" id="facultyRepEmail" placeholder="John.Doe@mail.com">
+                        <label for="facultyRepFb">FacRep Facebook:</label>
+                        <input class="addFR" type="text" name="facultyRepFb" id="facultyRepFb" placeholder="https://www.facebook.com/johndoe">
+                        <label for="facultyRepTel">FacRep Tel:</label>
+                        <input class="addFR" type="text" name="facultyRepTel" id="facultyRepTel" placeholder="5-777 7777">
+                        <label for="facultyRepImage">FacRep Image:</label>
+                        <input class="addFR" type="text" name="facultyRepImage" id="facultyRepImage" placeholder="https://www.website.com/image.png">
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn" id="addFaculty">Add New Faculty</button>
+                        <script>
+                            $('button#addFaculty').click(function() {
+                                const facultyName = $('#facultyName').val();
+                                const facultyRepName = $('#facultyRepName').val();
+                                const facultyRepEmail = $('#facultyRepEmail').val();
+                                const facultyRepFb = $('#facultyRepFb').val();
+                                const facultyRepTel = $('#facultyRepTel').val();
+                                const facultyRepImage = $('#facultyRepImage').val();
+
+                                $.post('./assets/src/includes/handlers/ajax/addNewFaculty.php', {
+                                    facultyName: facultyName,
+                                    facultyRepName: facultyRepName,
+                                    facultyRepEmail: facultyRepEmail,
+                                    facultyRepFb: facultyRepFb,
+                                    facultyRepTel: facultyRepTel,
+                                    facultyRepImage: facultyRepImage
+                                }, function(data) {
+                                    if (data != "") {
+                                        $('#facultyName').val("");
+                                        $('#facultyRepName').val("");
+                                        $('#facultyRepEmail').val("");
+                                        $('#facultyRepFb').val("");
+                                        $('#facultyRepTel').val("");
+                                        $('#facultyRepImage').val("");
+                                        const notifMessage = { message: data };
+                                        ShowNotif(notifMessage);
+                                    }
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                 <div class="page-content">

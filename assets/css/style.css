@@ -830,3 +830,27 @@ form.facRepForm>input[type="text"] {
     height: 635px;
     margin-bottom: 3.5vh;
 }
+
+.addNewFaculty {
+    background: #429dd1;
+    border-radius: 2vh;
+}
+
+.addNewFaculty-contents {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 6vh;
+}
+
+input[type="text"].addFR {
+    margin: 14px 0;
+    height: 5vh;
+    width: 110vh;
+    font-size: 1.3rem;
+    padding: 2px 0 3px 11px;
+    border-radius: 2vh;
+}
