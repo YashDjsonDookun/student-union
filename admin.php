@@ -84,6 +84,7 @@
                     <!-- Your content goes here -->
                     <form action="" method="POST" class="obForm">
                         <h3><strong>President Details</strong></h3>
+                        <label for="PresidentName">Name:</label>
                         <input type="text" name="presidentName" placeholder="<?php echo $President->getOB_Name(); ?>" value="<?php echo $President->getOB_Name(); ?>">
                         <label for="presidentTitle">Title:</label>
                         <input type="text" name="presidentTitle" style="text-align: center;" placeholder="<?php echo $President->getOB_Title(); ?>" disabled>
@@ -97,7 +98,6 @@
                     </form>
                     <form action="" method="POST" class="obForm">
                         <h3><strong>Vice President Details</strong></h3>
-                        <p style="margin: 0; padding: 0;" name="vicePresidentId">Id: <?php echo $Vpresident->getOB_id() ?></p>
                         <label for="vicePresidentName">Name:</label>
                         <input type="text" name="vicePresidentName" placeholder="<?php echo $Vpresident->getOB_Name(); ?>" value="<?php echo $Vpresident->getOB_Name(); ?>">
                         <label for="vicePresidentTitle">Title:</label>
@@ -112,7 +112,6 @@
                     </form>
                     <form action="" method="POST" class="obForm">
                         <h3><strong>Treasurer Details</strong></h3>
-                        <p style="margin: 0; padding: 0;" name="treasurerId">Id: <?php echo $Treasurer->getOB_id() ?></p>
                         <label for="treasurerName">Name:</label>
                         <input type="text" name="treasurerName" placeholder="<?php echo $Treasurer->getOB_Name(); ?>" value="<?php echo $Treasurer->getOB_Name(); ?>">
                         <label for="treasurerTitle">Title:</label>
@@ -123,11 +122,10 @@
                         <input type="text" name="treasurerTel" placeholder="<?php echo $Treasurer->getOB_Tel(); ?>" value="<?php echo $Treasurer->getOB_Tel(); ?>">
                         <label for="treasurerImage">Image Link:</label>
                         <input type="text" name="treasurerImage" placeholder="<?php echo $Treasurer->getOB_Image(); ?>" value="<?php echo $Treasurer->getOB_Image(); ?>">
-                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn">Save Treasurer</button>
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn" name="saveTreasurer">Save Treasurer</button>
                     </form>
                     <form action="" method="POST" class="obForm">
                         <h3><strong>Secretary Details</strong></h3>
-                        <p style="margin: 0; padding: 0;" name="secretaryId">Id: <?php echo $Secretary->getOB_id() ?></p>
                         <label for="secretaryName">Name:</label>
                         <input type="text" name="secretaryName" placeholder="<?php echo $Secretary->getOB_Name(); ?>" value="<?php echo $Secretary->getOB_Name(); ?>">
                         <label for="secretaryTitle">Title:</label>
@@ -138,7 +136,7 @@
                         <input type="text" name="secretaryTel" placeholder="<?php echo $Secretary->getOB_Tel(); ?>" value="<?php echo $Secretary->getOB_Tel(); ?>">
                         <label for="secretaryImage">Image Link:</label>
                         <input type="text" name="secretaryImage" placeholder="<?php echo $Secretary->getOB_Image(); ?>" value="<?php echo $Secretary->getOB_Image(); ?>">
-                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn">Save Secretary</button>
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn" name="saveSecretary">Save Secretary</button>
                     </form>
                 </div>
             </section>
