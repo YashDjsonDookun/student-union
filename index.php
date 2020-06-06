@@ -135,7 +135,10 @@
                         <section class="section-facRep">
                             <h4><strong><u>Reach Out To Your Faculty Representatives</u></strong></h4>
                             <div class="section-facRep-tile">
-                                <?php include("./assets/src/includes/showFacRep.php") ?>
+                                <?php
+                                    include("./assets/src/includes/showFacRep.php");
+                                    showFacRepClient($conn);
+                                ?>
                             </div>
                         </section>
                         <section class="wherearewe">

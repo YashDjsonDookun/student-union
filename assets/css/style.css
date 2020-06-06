@@ -763,6 +763,7 @@ input#link {
 
 .page-content.ob {
     display: flex;
+    /* flex-wrap: wrap; */
 }
 
 form.obForm {
@@ -787,4 +788,45 @@ form.obForm>input[type="text"] {
     padding: 0.5vh;
     border: none;
     margin: 5px 0;
+}
+
+.page-content.facRep {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form.facRepForm {
+    flex-direction: column !important;
+    margin-top: 0;
+    font-size: 1.5rem;
+    background: #429dd1;
+    padding: 0 !important;
+    text-align: center;
+    border-radius: 3vh;
+    height: auto !important;
+}
+
+form.facRepForm h3 {
+    color: #fff;
+}
+
+form.facRepForm>input[type="text"] {
+    width: 38vh;
+    height: 3vh;
+    border-radius: 1vh;
+    padding: 0.5vh;
+    border: none;
+    margin: 5px 0;
+}
+
+#fixed-tab-2 {
+    padding-top: 3vh;
+    width: 85%;
+    margin: auto;
+}
+
+.obearer.demo-card-image.mdl-card.facRepAdminPage {
+    width: 389px;
+    height: 635px;
+    margin-bottom: 3.5vh;
 }

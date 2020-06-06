@@ -1,6 +1,4 @@
 <?php
-    // include("./../config.php");
-
     if (isset($_POST['add']) && isset($_POST['link'])){
         $link = $_POST['link'];
 

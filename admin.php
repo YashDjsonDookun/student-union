@@ -4,6 +4,7 @@
     require_once("./assets/src/includes/classes/Admin.php");
     require_once("./assets/src/includes/classes/OfficeBearer.php");
     require_once("./assets/src/includes/handlers/updateObDetails-handler.php");
+    require_once("./assets/src/includes/classes/FacultyRep.php");
     if (isset($_SESSION['userLoggedIn']))
         {
             $userLoggedIn = $_SESSION['userLoggedIn'];
@@ -33,26 +34,26 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-cyan.min.css" />
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="./assets/js/node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Admin</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-cyan.min.css" />
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <script src="./assets/js/node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="./assets/js/main.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    </head>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
         <header class="mdl-layout__header" style="background-color: #429DD1;">
             <div class="mdl-layout__header-row">
@@ -141,8 +142,51 @@
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-                <div class="page-content">
-                    <!-- Your content goes here -->
+                <div class="page-content facRep section-facRep-tile">
+                    <?php
+                        include("./assets/src/includes/showFacRep.php");
+                        showFacRepAdmin($conn);
+                    ?>
+                    <script>
+                            function saveFacRep(id){
+                                const faculty = $('#facRep-title' + id).val();
+                                const name = $('#facRep-name' + id).val();
+                                const email = $('#facRep-email' + id).val();
+                                const fbLink = $('#facRep-fb' + id).val();
+                                const tel = $('#facRep-tel' + id).val();
+                                const image = $('#facRep-image' + id).val();
+
+                                $.post("./assets/src/includes/handlers/ajax/updateFacRepDetails.php", {
+                                    id: id,
+                                    faculty: faculty,
+                                    name: name,
+                                    email: email,
+                                    fbLink: fbLink,
+                                    tel: tel,
+                                    image: image
+                                }, function(data) {
+                                    if(data != ""){
+                                        const notifMessage = { message: data };
+                                        ShowNotif(notifMessage);
+                                    }
+                                });
+                            }
+
+                            function deleteFacRep(id){
+                                const prompt = confirm("Are you sure you want to delete this Faculty? THIS ACTION CANNOT BE UNDONE!")
+                                if (prompt){
+                                    $.post("./assets/src/includes/handlers/ajax/deleteFacRep.php", {
+                                    id: id,
+                                    }, function(data) {
+                                        if(data != ""){
+                                            const notifMessage = { message: "Faculty Removed Successfully!" };
+                                            ShowNotif(notifMessage);
+                                            window.location.href = data;
+                                        }
+                                    });
+                                }
+                            }
+                    </script>
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-3">
@@ -206,4 +250,9 @@
                 </div>
             </footer>
         </section>
+        <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+            <div style="margin: auto;" class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
     </div>
+</html>
