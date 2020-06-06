@@ -15,6 +15,7 @@
             $this->fbLink = $this->mysqliData['ob_fblink'];
             $this->tel = $this->mysqliData['ob_tel'];
             $this->image = $this->mysqliData['ob_image'];
+            $this->id = $this->mysqliData['ob_id'];
         }
 
         public function getOB_Name()
@@ -36,6 +37,10 @@
         public function getOB_fbLink()
         {
             return $this->fbLink;
+        }
+        public function getOB_id()
+        {
+            return $this->id;
         }
     }
 ?>

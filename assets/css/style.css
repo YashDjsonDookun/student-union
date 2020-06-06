@@ -366,19 +366,19 @@ h2#welcome-message {
 }
 
 .obearer.demo-card-image.mdl-card.ob-president {
-    background: url('http://sites2019.uom.ac.mu/studentsunion/images/Me4.jpg') center / cover;
+    /* background: url('http://sites2019.uom.ac.mu/studentsunion/images/Me4.jpg') center / cover; */
 }
 
 .obearer.demo-card-image.mdl-card.ob-vicepresident {
-    background: url('http://sites2019.uom.ac.mu/studentsunion/images/daveen.jpg') center / cover;
+    /*     background: url('http://sites2019.uom.ac.mu/studentsunion/images/daveen.jpg') center / cover; */
 }
 
 .obearer.demo-card-image.mdl-card.ob-treasurer {
-    background: url('http://sites2019.uom.ac.mu/studentsunion/images/mata.jpg') center / cover;
+    /*     background: url('http://sites2019.uom.ac.mu/studentsunion/images/mata.jpg') center / cover; */
 }
 
 .obearer.demo-card-image.mdl-card.ob-secretary {
-    background: url('http://sites2019.uom.ac.mu/studentsunion/images/70891328_2481076851977967_2939219225014697984_o.jpg') center / cover;
+    /*     background: url('http://sites2019.uom.ac.mu/studentsunion/images/70891328_2481076851977967_2939219225014697984_o.jpg') center / cover; */
 }
 
 .obearer.demo-card-image>.mdl-card__actions {
@@ -759,4 +759,32 @@ button#DeletePostBtn {
 input#link {
     height: 4vh;
     width: 98vh;
+}
+
+.page-content.ob {
+    display: flex;
+}
+
+form.obForm {
+    flex-direction: column !important;
+    margin-top: 2vh !important;
+    font-size: 1.5rem;
+    background: #429dd1;
+    padding: 3vh !important;
+    text-align: center;
+    border-radius: 3vh;
+    height: auto !important;
+}
+
+form.obForm h3 {
+    color: #fff;
+}
+
+form.obForm>input[type="text"] {
+    width: 41vh;
+    height: 3vh;
+    border-radius: 1vh;
+    padding: 0.5vh;
+    border: none;
+    margin: 5px 0;
 }

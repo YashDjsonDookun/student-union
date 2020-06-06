@@ -2,6 +2,8 @@
     require_once("./assets/src/includes/config.php");
     require_once("./assets/src/includes/handlers/logout-handler.php");
     require_once("./assets/src/includes/classes/Admin.php");
+    require_once("./assets/src/includes/classes/OfficeBearer.php");
+    require_once("./assets/src/includes/handlers/updateObDetails-handler.php");
     if (isset($_SESSION['userLoggedIn']))
         {
             $userLoggedIn = $_SESSION['userLoggedIn'];
@@ -24,6 +26,10 @@
     $adminEmail = $adminConnection->get_adminEmail($userLoggedIn);
     $adminFullName = $adminConnection->get_adminFullName($userLoggedIn);
     $adminPassword = $adminConnection->get_adminPassword($userLoggedIn);
+    $President = new OfficeBearer($conn, "President");
+    $Vpresident = new OfficeBearer($conn, "Vice-President");
+    $Treasurer = new OfficeBearer($conn, "Treasurer");
+    $Secretary = new OfficeBearer($conn, "Secretary");
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,14 +78,68 @@
                 <a href="#fixed-tab-4" class="mdl-layout__tab" style="color: white">| Administrators |</a>
             </div>
         </header>
-
-<!--        <div class="mdl-layout__drawer">-->
-<!--            <span class="mdl-layout-title">Title</span>-->
-<!--        </div>-->
         <main class="mdl-layout__content">
             <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-                <div class="page-content">
+                <div class="page-content ob">
                     <!-- Your content goes here -->
+                    <form action="" method="POST" class="obForm">
+                        <h3><strong>President Details</strong></h3>
+                        <input type="text" name="presidentName" placeholder="<?php echo $President->getOB_Name(); ?>" value="<?php echo $President->getOB_Name(); ?>">
+                        <label for="presidentTitle">Title:</label>
+                        <input type="text" name="presidentTitle" style="text-align: center;" placeholder="<?php echo $President->getOB_Title(); ?>" disabled>
+                        <label for="presidentFb">Fb Link:</label>
+                        <input type="text" name="presidentFb" placeholder="<?php echo $President->getOB_fbLink(); ?>" value="<?php echo $President->getOB_fbLink(); ?>">
+                        <label for="presidentTel">Tel:</label>
+                        <input type="text" name="presidentTel" placeholder="<?php echo $President->getOB_Tel(); ?>" value="<?php echo $President->getOB_Tel(); ?>">
+                        <label for="presidentImage">Image Link:</label>
+                        <input type="text" name="presidentImage" placeholder="<?php echo $President->getOB_Image(); ?>" value="<?php echo $President->getOB_Image(); ?>">
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn" name="savePresident">Save President</button>
+                    </form>
+                    <form action="" method="POST" class="obForm">
+                        <h3><strong>Vice President Details</strong></h3>
+                        <p style="margin: 0; padding: 0;" name="vicePresidentId">Id: <?php echo $Vpresident->getOB_id() ?></p>
+                        <label for="vicePresidentName">Name:</label>
+                        <input type="text" name="vicePresidentName" placeholder="<?php echo $Vpresident->getOB_Name(); ?>" value="<?php echo $Vpresident->getOB_Name(); ?>">
+                        <label for="vicePresidentTitle">Title:</label>
+                        <input type="text" name="vicePresidentTitle" style="text-align: center;" placeholder="<?php echo $Vpresident->getOB_Title(); ?>" disabled>
+                        <label for="vicePresidentFb">Fb Link:</label>
+                        <input type="text" name="vicePresidentFb" placeholder="<?php echo $Vpresident->getOB_fbLink(); ?>" value="<?php echo $Vpresident->getOB_fbLink(); ?>">
+                        <label for="vicePresidentTel">Tel:</label>
+                        <input type="text" name="vicePresidentTel" placeholder="<?php echo $Vpresident->getOB_Tel(); ?>" value="<?php echo $Vpresident->getOB_Tel(); ?>">
+                        <label for="vicePresidentImage">Image Link:</label>
+                        <input type="text" name="vicePresidentImage" placeholder="<?php echo $Vpresident->getOB_Image(); ?>" value="<?php echo $Vpresident->getOB_Image(); ?>">
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn" name="saveVicePresident">Save Vice President</button>
+                    </form>
+                    <form action="" method="POST" class="obForm">
+                        <h3><strong>Treasurer Details</strong></h3>
+                        <p style="margin: 0; padding: 0;" name="treasurerId">Id: <?php echo $Treasurer->getOB_id() ?></p>
+                        <label for="treasurerName">Name:</label>
+                        <input type="text" name="treasurerName" placeholder="<?php echo $Treasurer->getOB_Name(); ?>" value="<?php echo $Treasurer->getOB_Name(); ?>">
+                        <label for="treasurerTitle">Title:</label>
+                        <input type="text" name="treasurerTitle" style="text-align: center;" placeholder="<?php echo $Treasurer->getOB_Title(); ?>" disabled>
+                        <label for="treasurerFb">Fb Link:</label>
+                        <input type="text" name="treasurerFb" placeholder="<?php echo $Treasurer->getOB_fbLink(); ?>" value="<?php echo $Treasurer->getOB_fbLink(); ?>">
+                        <label for="treasurerTel">Tel:</label>
+                        <input type="text" name="treasurerTel" placeholder="<?php echo $Treasurer->getOB_Tel(); ?>" value="<?php echo $Treasurer->getOB_Tel(); ?>">
+                        <label for="treasurerImage">Image Link:</label>
+                        <input type="text" name="treasurerImage" placeholder="<?php echo $Treasurer->getOB_Image(); ?>" value="<?php echo $Treasurer->getOB_Image(); ?>">
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn">Save Treasurer</button>
+                    </form>
+                    <form action="" method="POST" class="obForm">
+                        <h3><strong>Secretary Details</strong></h3>
+                        <p style="margin: 0; padding: 0;" name="secretaryId">Id: <?php echo $Secretary->getOB_id() ?></p>
+                        <label for="secretaryName">Name:</label>
+                        <input type="text" name="secretaryName" placeholder="<?php echo $Secretary->getOB_Name(); ?>" value="<?php echo $Secretary->getOB_Name(); ?>">
+                        <label for="secretaryTitle">Title:</label>
+                        <input type="text" name="secretaryTitle" style="text-align: center;" placeholder="<?php echo $Secretary->getOB_Title(); ?>" disabled>
+                        <label for="secretaryFb">Fb Link:</label>
+                        <input type="text" name="secretaryFb" placeholder="<?php echo $Secretary->getOB_fbLink(); ?>" value="<?php echo $Secretary->getOB_fbLink(); ?>">
+                        <label for="secretaryTel">Tel:</label>
+                        <input type="text" name="secretaryTel" placeholder="<?php echo $Secretary->getOB_Tel(); ?>" value="<?php echo $Secretary->getOB_Tel(); ?>">
+                        <label for="secretaryImage">Image Link:</label>
+                        <input type="text" name="secretaryImage" placeholder="<?php echo $Secretary->getOB_Image(); ?>" value="<?php echo $Secretary->getOB_Image(); ?>">
+                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pinkBtn">Save Secretary</button>
+                    </form>
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-2">
@@ -103,7 +163,7 @@
                     <hr>
                     <div class="post-part">
                         <div class="unionFbPosts">
-                                    <?php require_once('./assets/src/includes/displayFacebookPost.php'); displayFBPostAdmin($conn); ?>
+                                <?php require_once('./assets/src/includes/displayFacebookPost.php'); displayFBPostAdmin($conn); ?>
                         </div>
                     <hr>
                     <div class="suggestion-part">
